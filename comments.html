@@ -72,10 +72,10 @@ body{
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 <script>
 
-	let itemsArray = sessionStorage.getItem('items') ? JSON.parse(sessionStorage.getItem('items')) : [];
+	let itemsArray = globalStorage.getItem('items') ? JSON.parse(globalStorage.getItem('items')) : [];
         //localStorage.clear()
 
-	const data = JSON.parse(sessionStorage.getItem('items')); 
+	const data = JSON.parse(globalStorage.getItem('items')); 
 
 	const render = (data) => {
 	  const html = "<div class = 'comentBox'><div class ='leftPanelImg'><img src = 'https://via.placeholder.com/90'></div> <div class ='Rightpanel'><span>"+data.firstname+"</span><div class = 'date'>"+data.date+"</div><p>"+data.body+"</p></div><div class ='clear'></div></div>";
@@ -91,7 +91,7 @@ body{
                     "body": $('#body').val(),
           };
 	  itemsArray.push(addObj);
-	  sessionStorage.setItem('items', JSON.stringify(itemsArray));
+	  globalStorage.setItem('items', JSON.stringify(itemsArray));
          
 	  $("#firstname, #date, #body").val('');
 
